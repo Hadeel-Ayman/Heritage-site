@@ -1,28 +1,21 @@
 const express = require('express');
-// const { register, login, logout } = require('../controllers/authController');
 const userRouter = express.Router();
-const jwt = require('jsonwebtoken')
 const User = require("../models/userModel")
+const jwt = require('jsonwebtoken')
 
 
-userRouter.post('/register', (req, res) => {
-    const user = new User(req.body)
-    user.save()
-        .then((data) => res.status(200).send(data))
-        .catch((e) => res.status(400).send(e))
-})
 
+// // delete
 
-userRouter.post('/login', async (req, res) => {
-    try {
-        const user = await User.findByCredentials(req.body.email, req.body.password)
-        res.status(200).send(user)
-    } catch (e) {
-        res.status(400).send(e.message)
+userRouter.delete('/user/:id', async (req, res) => {
+    const token = req.cookies.accessToken
+    if (!token) {
+        return res.status(400).send('user not found')
     }
+    jwt.verify(token, 'hadeel', (err, payload) => {
+        res.send(payload)
+    })
 })
 
-
-// userRouter.get('/logout', logout)
 
 module.exports = userRouter

@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
 
 app.get('/', (req, res) => {
     res.send('hello in platform')
@@ -10,14 +10,20 @@ app.get('/', (req, res) => {
 const cookieParser = require('cookie-parser')
 
 
-
 app.use(express.json())
 app.use(cookieParser())
 require('../db/mongoose')
 
+
+// auth
+const authRouter = require('../routes/authRoutes')
+app.use(authRouter)
+
+//User
 const UserRouter = require('../routes/userRoutes')
 app.use(UserRouter)
 
+//conversation
 const conversationRouter = require('../routes/conversationRoutes')
 app.use(conversationRouter)
 
@@ -32,6 +38,8 @@ app.use(orderRouter)
 
 const reviewRouter = require('../routes/reviewRoutes')
 app.use(reviewRouter)
+
+
 
 
 

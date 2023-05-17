@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const UserSchema = new mongoose.Schema({
     username: {
@@ -56,6 +57,12 @@ const UserSchema = new mongoose.Schema({
         trim: true,
         default: false
     },
+    tokens: [
+        {
+            type: String,
+            required: true
+        }
+    ]
 },
     {
         timestamps: true
@@ -63,30 +70,52 @@ const UserSchema = new mongoose.Schema({
 
 
 
-// bcryptjs password 
+// bcryptjs password for regestier
 
 UserSchema.pre('save', async function () {
     const user = this
     user.password = await bcryptjs.hash(user.password, 8)
-
 })
 
 //login
-UserSchema.statics.findByCredentials = async (emailOfBody, passwordOfBody) => {
-    const user = await User.findOne({ email: emailOfBody })
+UserSchema.statics.findByCredentials = async (emaicl, pass) => {
+    const user = await User.findOne({ email: emaicl })
 
     if (!user) {
         throw new Error('Unable to login ccc')
     }
 
-    const PasswordMatch = await bcryptjs.compare(passwordOfBody, user.password)
+    const PasswordMatch = await bcryptjs.compare(pass, user.password)
     if (!PasswordMatch) {
-        throw new Error('Unable to login bbb')
+        // return res.status(400).send('not match')
+        // console.log('Unable to login bbb')
+        // throw new Error('Unable to login bbb')
     }
-
     return user
 }
 
+// generateToken
+UserSchema.methods.generateToken = async function () {
+    const user = this
+    const token = jwt.sign(
+        {
+            id: user._id.toString(),
+            isSeller: user.isSeller
+        }, 'hadeel')
+    user.tokens = user.tokens.concat(token)
+    await user.save()
+    return token
+}
+
+// hide data
+UserSchema.methods.toJSON = function () {
+    const user = this
+    const userOfObject = user.toObject()
+
+    delete userOfObject.password
+    delete userOfObject.tokens
+    return userOfObject
+}
 
 const User = mongoose.model('User', UserSchema)
 module.exports = User
