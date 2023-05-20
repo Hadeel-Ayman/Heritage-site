@@ -6,8 +6,8 @@ import axios from 'axios'
 import { Localhost } from '../../config/api'
 
 // component
-import Input from '../../component/Input'
-import Label from '../../component/Label'
+// import Input from '../../component/Input'
+// import Label from '../../component/Label'
 
 // reducer
 import { initalstate, reducer } from '../../reducer/loginReducer'

@@ -6,8 +6,8 @@ import axios from 'axios'
 import { Localhost } from '../../config/api'
 
 // component
-import Input from '../../component/Input'
-import Label from '../../component/Label'
+// import Input from '../../component/Input'
+// import Label from '../../component/Label'
 
 // reducer
 import { initalstate1, reducer1 } from '../../reducer/registerReducer'
@@ -32,9 +32,9 @@ const Register = () => {
 
   return (
     <div className='register'>
-      <form className='registerForm' onSubmit={handleSubmit}>
-        <h1 className='signup'>Sign Up</h1>
-        <div className='flex div1'>
+      {/* <form className='registerForm' onSubmit={handleSubmit}> */}
+        {/* <h1 className='signup'>Sign Up</h1> */}
+        {/* <div className='flex div1'>
           <Label title={'Username'} />
           <Input
             name={'username'}
@@ -67,7 +67,7 @@ const Register = () => {
         <button
           type='submit'
           className='registerBtn'>Register</button>
-      </form>
+      </form> */}
     </div>
   )
 }
