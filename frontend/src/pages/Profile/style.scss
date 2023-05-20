@@ -11,8 +11,10 @@
     padding: 20px;
     align-items: baseline;
     img {
-      width: 100%;
-      height: 100%;
+      width: 331px;
+      height: 330px;
+      border-radius: 50%;
+      object-fit: cover;
     }
     .avatar {
       position: relative;
