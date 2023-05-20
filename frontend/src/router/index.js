@@ -1,18 +1,19 @@
-import React from 'react'
+import React from "react";
 
 // Router
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes } from "react-router-dom";
 
 // pages
-import { Login, Register } from '../pages'
+import Login from "./../pages/Login/index";
+import Register from "./../pages/Register/index";
 
-const Routero = () => {
-    return (
-        <Routes>
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-        </Routes>
-    )
-}
+const Router = () => {
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+    </Routes>
+  );
+};
 
-export default Routero
+export default Router;

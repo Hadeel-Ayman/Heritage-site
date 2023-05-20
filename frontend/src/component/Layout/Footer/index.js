@@ -1,13 +1,13 @@
 import React from "react";
 import "./style.css";
-import check from '../../images/check.png'
-import accessibility from '../../images/accessibility.png'
-import facebook from '../../images/facebook.png'
-import linkedin from '../../images/linkedin.png'
-import pinterest from "../../images/pinterest.png"
-import instagram from '../../images/instagram.png'
-import language from '../../images/language.png'
-import coin from '../../images/coin.png'
+import check from '../../../assets/images/check.png'
+import accessibility from '../../../assets/images/accessibility.png'
+import facebook from '../../../assets/images/facebook.png'
+import linkedin from '../../../assets/images/linkedin.png'
+import pinterest from "../../../assets/images/pinterest.png"
+import instagram from '../../../assets/images/instagram.png'
+import language from '../../../assets/images/language.png'
+import coin from '../../../assets/images/coin.png'
 
 
 const Footer = () => {
