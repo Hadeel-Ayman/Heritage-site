@@ -1,0 +1,15 @@
+.mediaBtn {
+  display: flex;
+  padding: 9px;
+  align-items: center;
+  margin: 15px auto;
+  width: 300px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+
+  h3 {
+    margin: 0 80px;
+  }
+}
