@@ -11,6 +11,7 @@ import Label from '../../component/Label'
 
 // reducer
 import { initalstate, reducer } from '../../reducer/loginReducer'
+import Title from '../../component/Title'
 
 const Login = () => {
 
@@ -19,11 +20,11 @@ const Login = () => {
         // const fetch = await axios.post(`${Localhost}/`)
     }
 
-    const [state, dispatch] = useReducer(reducer, initalstate)
+    // const [state, dispatch] = useReducer(reducer, initalstate)
     return (
         <div className='login'>
             <form>
-                <h2>Sign in to </h2>
+                <Title title={'Sign In to Heritage'} />
             </form>
 
 
