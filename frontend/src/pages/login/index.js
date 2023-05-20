@@ -6,8 +6,8 @@ import axios from 'axios'
 import { Localhost } from '../../config/api'
 
 // component
-import  Input from '../../component/Input'
-import  Label from '../../component/Label'
+import Input from '../../component/Input'
+import Label from '../../component/Label'
 
 // reducer
 import { initalstate, reducer } from '../../reducer/loginReducer'
@@ -22,7 +22,18 @@ const Login = () => {
     const [state, dispatch] = useReducer(reducer, initalstate)
     return (
         <div className='login'>
-            <form className='loginForm' onSubmit={handleSubmit}>
+            <form>
+                <h2>Sign in to </h2>
+            </form>
+
+
+
+
+
+
+
+
+            {/* <form className='loginForm' onSubmit={handleSubmit}>
                 <h1 className='signin'>Sign in</h1>
                 <div className='flex div1'>
                     <Label title={'Email'} />
@@ -46,8 +57,8 @@ const Login = () => {
 
                 <button
                     type='submit'
-                    className='loginBtn'>Login</button>
-            </form>
+                    className='loginBtn'>Login</button> */}
+            {/* </form> */}
         </div>
     )
 }
