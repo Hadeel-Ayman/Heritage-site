@@ -1,16 +1,18 @@
 import React from 'react'
-import './style.css'
+import './style.scss'
 
 
 const Input = ({ name, placeholder, type, value, onChange }) => {
     return (
-        <input
-            className='loginInput'
-            name={name}
-            type={type}
-            placeholder={placeholder}
-            onChange={onChange}
-            value={value} />
+        <div className='inputdiv'>
+            <input
+                className='loginInput'
+                name={name}
+                type={type}
+                placeholder={placeholder}
+                onChange={onChange}
+                value={value} />
+        </div>
     )
 }
 
