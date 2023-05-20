@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react'
-import './style.css'
+import './style.scss'
 
 // axios
 import axios from 'axios'
