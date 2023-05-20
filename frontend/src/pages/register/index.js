@@ -3,10 +3,11 @@ import './style.css'
 
 // axios
 import axios from 'axios'
-import { Localhost } from '../../config/config'
+import { Localhost } from '../../config/api'
 
 // component
-import { Input, Label } from '../../component'
+import Input from '../../component/Input'
+import Label from '../../component/Label'
 
 // reducer
 import { initalstate1, reducer1 } from '../../reducer/registerReducer'
