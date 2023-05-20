@@ -1,0 +1,11 @@
+.header {
+    width: 100%;
+    background-color: #aaa;
+    height: 79px;
+    /* padding: 5px 10px; */
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+}

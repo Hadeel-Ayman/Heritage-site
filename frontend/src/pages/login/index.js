@@ -1,39 +1,51 @@
 import React, { useReducer } from 'react'
 import './style.css'
+
+// axios
 import axios from 'axios'
-import { Input, Label } from '../../component'
-import { initalstate, reducer } from '../../reducer/loginReducer'
 import { Localhost } from '../../config/config'
+
+// component
+import { Input, Label } from '../../component'
+
+// reducer
+import { initalstate, reducer } from '../../reducer/loginReducer'
 
 const Login = () => {
 
-    const handleSubmit = async (e) => {
-        e.preventdefault()
+    const handleSubmit = (e) => {
+        e.preventDefault()
         // const fetch = await axios.post(`${Localhost}/`)
     }
 
     const [state, dispatch] = useReducer(reducer, initalstate)
     return (
         <div className='login'>
-            <form onSubmit={handleSubmit}>
-                <h1>Sign in</h1>
-                <Label title={'Username'} />
-                <Input
-                    name={'username'}
-                    value={state.username}
-                    onChange={(e) => dispatch({ type: 'username', value: e.target.value })}
-                    placeholder={'Enter username'}
-                    type={'text'} />
+            <form className='loginForm' onSubmit={handleSubmit}>
+                <h1 className='signin'>Sign in</h1>
+                <div className='flex div1'>
+                    <Label title={'Email'} />
+                    <Input
+                        name={'email'}
+                        value={state.email}
+                        onChange={(e) => dispatch({ type: 'email', value: e.target.value })}
+                        placeholder={'Enter your email'}
+                        type={'text'} />
+                </div>
 
-                <Label title={'Password'} />
-                <Input
-                    name={'password'}
-                    value={state.password}
-                    onChange={(e) => dispatch({ type: 'password', value: e.target.value })}
-                    placeholder={'Enter password'}
-                    type={'password'} />
+                <div className='flex div2'>
+                    <Label title={'Password'} />
+                    <Input
+                        name={'password'}
+                        value={state.password}
+                        onChange={(e) => dispatch({ type: 'password', value: e.target.value })}
+                        placeholder={'Enter your password'}
+                        type={'password'} />
+                </div>
 
-                <button type='submit'>Login</button>
+                <button
+                    type='submit'
+                    className='loginBtn'>Login</button>
             </form>
         </div>
     )

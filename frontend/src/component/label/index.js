@@ -4,7 +4,9 @@ import './style.css'
 
 const Label = ({ title }) => {
     return (
-        <label>{title}</label>
+        <div className='lab'>
+            <label>{title}</label>
+        </div>
     )
 }
 

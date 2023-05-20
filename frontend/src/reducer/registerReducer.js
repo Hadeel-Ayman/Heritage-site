@@ -1,11 +1,14 @@
-export const initalstate = {
+export const initalstate1 = {
     email: '',
+    username: '',
     password: '',
     error: null
 }
 
-export const reducer = (state, action) => {
+export const reducer1 = (state, action) => {
     switch (action.type) {
+        case 'username':
+            return { ...state, username: action.value }
         case 'email':
             return { ...state, email: action.value }
         case 'password':
@@ -13,6 +16,6 @@ export const reducer = (state, action) => {
         case 'error':
             return { ...state, error: action.value }
         default:
-            return initalstate
+            return initalstate1
     }
 }

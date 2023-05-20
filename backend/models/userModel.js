@@ -87,9 +87,6 @@ UserSchema.statics.findByCredentials = async (emaicl, pass) => {
 
     const PasswordMatch = await bcryptjs.compare(pass, user.password)
     if (!PasswordMatch) {
-        // return res.status(400).send('not match')
-        // console.log('Unable to login bbb')
-        // throw new Error('Unable to login bbb')
     }
     return user
 }

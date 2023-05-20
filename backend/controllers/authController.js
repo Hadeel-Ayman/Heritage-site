@@ -1,31 +1,51 @@
-// const User = require("../models/userModel")
+const User = require("../models/userModel")
 
-// const register = (req, res) => {
-//     const user = new User(req.body)
-//     user.save()
-//         .then((data) => res.status(200).send(data))
-//         .catch((e) => res.status(400).send(e))
-// }
-
-
-// const login = async (req, res) => {
-//     try {
-//         const user = await User.findByCredentials(req.body.email, req.body.password)
-//         res.status(200).send(user)
-//     } catch (e) {
-//         res.status(400).send(e.message)
-//     }
-// }
+// register
+const register = async (req, res) => {
+    try {
+        const user = new User(req.body)
+        const token = await user.generateToken()
+        await user.save()
+        res.status(200).send({ user, token })
+    } catch (e) {
+        res.status(400).send(e)
+    }
+}
 
 
-// const logout = (req, res) => {
+// login
+const login = async (req, res) => {
+    try {
+        const user = await User.findByCredentials(req.body.email, req.body.password)
+        const token = await user.generateToken()
+        res.cookie('accessToken', token, {
+            httpOnly: true
+        }).status(200).send({ user, token })
+    } catch (e) {
+        res.status(400).send(e.message)
+    }
+}
 
-// }
+
+// logout
+const logout = async (req, res) => {
+    try {
+        console.log(req.user)
+        req.user.tokens = req.user.tokens.filter((el) => {
+           return el !== req.token
+        })
+
+        await req.user.save()
+        res.status(200).send('you are logout')
+    } catch (e) {
+        res.status(400).send(e)
+    }
+}
 
 
 
-// module.exports = {
-//     // register,
-//     // login,
-//     logout
-// }
+module.exports = {
+    register,
+    login,
+    logout
+}
