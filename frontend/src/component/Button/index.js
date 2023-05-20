@@ -1,11 +1,14 @@
 import React from 'react'
 import './style.scss'
 
-const Button = ({ title, src, color, backgroundColor }) => {
+const Button = ({ type, title, src, color, backgroundColor }) => {
     return (
-        <button className='mediaBtn' style={{ backgroundColor, color }}>
+        <button
+            className='mediaBtn'
+            type={type}
+            style={{ backgroundColor, color }}>
             <img src={src} alt='' />
-            <h3>{title}</h3>
+            <h4>{title}</h4>
         </button>
     )
 }
