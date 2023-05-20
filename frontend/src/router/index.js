@@ -4,16 +4,15 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 // pages
-import Login from "./../pages/Login/index";
-import Register from "./../pages/Register/index";
+import { Login, Register } from "../pages";
 
 const Router = () => {
-  return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+        </Routes>
+    );
 };
 
 export default Router;
