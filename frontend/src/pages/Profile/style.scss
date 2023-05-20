@@ -119,7 +119,7 @@
 
         .itemValue {
           font-weight: 300;
-          input{
+          input {
             border: none;
             border-bottom: 1px solid #80808061;
             padding: 5px 0;
@@ -140,28 +140,28 @@
           font-size: 20px;
           margin-bottom: 20px;
         }
-        .btns{
+        .btns {
           display: flex;
           gap: 10px;
           margin-top: 10px;
-          .deleteButton{
+          .deleteButton {
             color: #fff;
             background-color: #f00;
             border-radius: 5px;
-            border:1px solid #f00;
+            border: 1px solid #f00;
             padding: 2px 5px;
             cursor: pointer;
           }
-          .editButton{
+          .editButton {
             color: #fff;
             background-color: #8bc9fe;
             border-radius: 5px;
-            border:1px solid #8bc9fe;
+            border: 1px solid #8bc9fe;
             padding: 2px 5px;
             cursor: pointer;
           }
         }
-        .add{
+        .add {
           display: flex;
           flex-direction: column;
           gap: 10px;
@@ -169,25 +169,25 @@
           width: fit-content;
           padding: 10px;
           border-radius: 10px;
-          .addTitle{
+          .addTitle {
             font-weight: 500;
             color: #fff;
           }
-          input{
+          input {
             border: none;
             border-bottom: 1px solid #80808061;
             padding: 5px 0;
             background-color: transparent;
           }
-          .addButton{
+          .addButton {
             color: #fff;
             background-color: #8bc9fe;
             border-radius: 5px;
-            border:1px solid #8bc9fe;
+            border: 1px solid #8bc9fe;
             padding: 4px 5px;
             cursor: pointer;
             width: fit-content;
-        }
+          }
         }
         .items {
           margin: 20px 0;
