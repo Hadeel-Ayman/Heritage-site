@@ -17,13 +17,21 @@ import Input from '../../component/input'
 import Not from '../../component/not a member'
 
 const Login = () => {
+    const [state, dispatch] = useReducer(reducer, initalstate)
 
-    const handleSubmit = (e) => {
+    const data = {
+        password: state.password,
+        email: state.email,
+    }
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        // const fetch = await axios.post(`${Localhost}/`)
+        const fetch = await axios.post(`${Localhost}/login`, {
+            data
+        })
     }
 
-    // const [state, dispatch] = useReducer(reducer, initalstate)
+
+
     return (
         <div className='login'>
             <form onSubmit={handleSubmit}>
@@ -35,35 +43,13 @@ const Login = () => {
                 </div>
                 <OR />
                 <div className='allinput'>
-                    <Input placeholder={'Enter your Email'} />
-                    <Input placeholder={'Enter your Email'} />
-                </div>
-                <button type='submit' className='submit'>Login</button>
-                <hr />
-                <Not title={'Not a member'} ques={'Sign up'} href={'/register'} />
-            </form>
-
-
-
-
-
-
-
-
-            {/* <form className='loginForm' onSubmit={handleSubmit}>
-                <h1 className='signin'>Sign in</h1>
-                <div className='flex div1'>
-                    <Label title={'Email'} />
                     <Input
+                        placeholder={'Enter your Email'}
                         name={'email'}
-                        value={state.email}
+                        type={'text'}
                         onChange={(e) => dispatch({ type: 'email', value: e.target.value })}
-                        placeholder={'Enter your email'}
-                        type={'text'} />
-                </div>
+                        value={state.email} />
 
-                <div className='flex div2'>
-                    <Label title={'Password'} />
                     <Input
                         name={'password'}
                         value={state.password}
@@ -71,11 +57,10 @@ const Login = () => {
                         placeholder={'Enter your password'}
                         type={'password'} />
                 </div>
-
-                <button
-                    type='submit'
-                    className='loginBtn'>Login</button> */}
-            {/* </form> */}
+                <button type='submit' className='submit'>Login</button>
+                <hr />
+                <Not title={'Not a member'} ques={'Sign up'} href={'/register'} />
+            </form>
         </div>
     )
 }

@@ -32,31 +32,6 @@ const UserSchema = new mongoose.Schema({
             }
         }
     },
-    img: {
-        type: String,
-        required: false,
-        trim: true
-    },
-    country: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    phone: {
-        type: String,
-        required: false,
-        trim: true
-    },
-    desc: {
-        type: String,
-        required: false,
-        trim: true
-    },
-    isSeller: {
-        type: Boolean,
-        trim: true,
-        default: false
-    },
     tokens: [
         {
             type: String,
