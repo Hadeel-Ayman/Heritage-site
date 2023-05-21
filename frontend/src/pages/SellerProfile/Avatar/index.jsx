@@ -1,5 +1,4 @@
 import React from 'react'
-import { Stars } from './../../../assets/icons';
 import PersonalInformation from '../PersonalInformation';
 
 const Avatar = () => {
@@ -13,7 +12,7 @@ const Avatar = () => {
                        <div className="text">
                        <div className="name">John Joe</div>
                         <div className="surname">FrontEnd developer</div>
-                        <div className="reviews"><Stars /></div>
+                        <div className="reviews">{"⭐".repeat(5)}</div>
                        </div>
                     </div>
                     <div className="btns">
