@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import { useNavigate } from 'react-router-dom'
 import "./style.scss";
 
 // axios
@@ -17,6 +18,8 @@ import Not from "../../component/not a member";
 const Login = () => {
     const [state, dispatch] = useReducer(reducer, initalstate);
 
+    const navigate = useNavigate();
+
     const data = {
         password: state.password,
         email: state.email,
@@ -24,15 +27,22 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let fetchData = await fetch(`${Localhost}/login`, {
-            method: "post",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        let res = await fetchData.json();
-        console.log(res);
+        try {
+
+            let fetchData = await fetch(`${Localhost}/login`, {
+                method: "post",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            let res = await fetchData.json();
+            localStorage.setItem('user', JSON.stringify(res))
+            navigate('/')
+            console.log(res);
+        } catch (e) {
+            dispatch({ type: 'error', value: e })
+        }
     };
 
     return (
@@ -84,6 +94,7 @@ const Login = () => {
                 <button type="submit" className="submit">
                     Login
                 </button>
+                {state.error && state.error}
                 <hr />
                 <Not title={"Not a member"} ques={"Sign up"} href={"/register"} />
             </form>
