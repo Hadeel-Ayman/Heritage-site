@@ -1,8 +1,8 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
 import "./style.scss";
 
-// axios
-import axios from "axios";
+// config
 import { Localhost } from "../../config/api";
 
 // reducer
@@ -16,6 +16,8 @@ import OR from "../../component/OR";
 import Not from "../../component/not a member";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [state, dispatch] = useReducer(reducer1, initalstate1);
 
   const data = {
@@ -24,17 +26,30 @@ const Register = () => {
     email: state.email,
   };
 
+  useEffect(() => {
+    const getData = localStorage.getItem('user')
+    if (getData) {
+      navigate('/')
+    }
+  })
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let fetchData = await fetch(`${Localhost}/register`, {
-      method: "post",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    let res = await fetchData.json();
-    console.log(res);
+    try {
+      let fetchData = await fetch(`${Localhost}/register`, {
+        method: "post",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      let res = await fetchData.json();
+      localStorage.setItem("user", JSON.stringify(res));
+      navigate("/");
+      console.log(res);
+    } catch (e) {
+      dispatch({ type: "error", value: e });
+    }
   };
 
   return (
@@ -96,6 +111,7 @@ const Register = () => {
         <button type="submit" className="submit">
           Register
         </button>
+        {state.error && state.error}
         <hr />
         <Not title={"Already a member"} ques={"Sign In"} href={"/login"} />
       </form>
