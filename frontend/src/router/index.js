@@ -4,7 +4,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 // pages
-import { Login, Profile, Register } from "../pages";
+import { Chat, Login, Profile, Register, SellerProfile } from "../pages";
 
 const Router = () => {
     return (
@@ -13,6 +13,8 @@ const Router = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/sellerProfile" element={<SellerProfile />} />
+            <Route path="/chat" element={<Chat />} />
         </Routes>
     );
 };
