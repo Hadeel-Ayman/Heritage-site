@@ -11,7 +11,7 @@ import { initalstate1, reducer1 } from "../../reducer/registerReducer";
 // component
 import Title from "../../component/Title";
 import Button from "../../component/Button";
-import Input from "../../component/Input";
+import Input from "../../component/input";
 import OR from "../../component/OR";
 import Not from "../../component/not a member";
 
