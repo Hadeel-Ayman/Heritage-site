@@ -24,6 +24,10 @@ app.use(authRouter)
 const UserRouter = require('../routes/userRoutes')
 app.use(UserRouter)
 
+// service
+const ServiceRouter = require('../routes/serviceRoutes')
+app.use(ServiceRouter)
+
 //conversation
 const conversationRouter = require('../routes/conversationRoutes')
 app.use(conversationRouter)
