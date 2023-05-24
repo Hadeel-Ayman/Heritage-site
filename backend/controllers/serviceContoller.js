@@ -31,12 +31,13 @@ const patchService = async (req, res) => {
     const id = req.params.id
     const keys = Object.keys(req.body)
     const service = await Service.findById(id)
-    keys.forEach((item) => (service[item] = req.body[item]))
     if (!service) {
         return res.status(400).send('service not found')
-    } else {
-        return res.status(200).send(service)
     }
+    keys.forEach((item) => (service[item] = req.body[item]))
+    res.status(200).send(service)
+
+    await service.save()
 }
 
 const deleteService = async (req, res) => {
