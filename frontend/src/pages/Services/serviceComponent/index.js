@@ -4,7 +4,9 @@ import './style.scss'
 const ServiceComponent = ({ src, img, name, desc, price }) => {
   return (
     <div className='serviceITem'>
-      <img src={src} alt='' className='img' draggable='false' />
+      <div className='imgdiv'>
+        <img src={src} alt='' className='img' draggable='false' />
+      </div>
 
       <div className='flex'>
         <img src={img} alt='' className='avatar' />
