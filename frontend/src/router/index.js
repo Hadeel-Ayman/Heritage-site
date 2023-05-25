@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 
 // pages
 import { Chat, Login, Profile, Register, SellerProfile,Order } from "../pages";
+import Service from "../pages/Services";
 
 const Router = () => {
     return (
@@ -16,6 +17,7 @@ const Router = () => {
             <Route path="/sellerProfile" element={<SellerProfile />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/order" element={<Order />} />
+            <Route path="/service" element={<Service/>}/>
         </Routes>
     );
 };
