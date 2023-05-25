@@ -7,8 +7,10 @@ import Messages from './Messages';
 const Chat = () => {
   return (
     <div className="wrapper">
-        <Conversation/>
-        <Messages/>
+      <div className="chat">
+        <Conversation />
+        <Messages />
+      </div>
     </div>
   )
 }
