@@ -9,7 +9,7 @@ const MenuTop = () => {
                     <Link to="/dashboard">Home</Link>
                 </div>
                 <div className="setting-links">
-                    <Link to="/">Profile</Link>
+                    <Link to="/profile">Profile</Link>
                 </div>
                 <div className="setting-links">
                     <Link to="/">Logout</Link>

@@ -17,7 +17,7 @@ const Header = () => {
         <div className='header'>
             <div className='top'>
                 <div className="logo">
-                    <img src={logo} alt="" />
+                    <Link to="/"><img src={logo} alt="" /></Link>
                     <div className="search">
                         <form>
                             <input type="text" />
