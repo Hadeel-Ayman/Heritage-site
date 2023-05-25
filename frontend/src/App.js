@@ -8,8 +8,6 @@ function App() {
     <div className="App">
       <EditProvider>
         <Header />
-        {/* <Router /> */}
-        {/* <Order /> */
         <Footer />
       </EditProvider>
     </div>
