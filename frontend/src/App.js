@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <EditProvider>
         <Header />
+        <Router/>
         <Footer />
       </EditProvider>
     </div>

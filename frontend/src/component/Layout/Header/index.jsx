@@ -6,6 +6,7 @@ import { BsFillBagHeartFill } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import SubHeader from './SubHeader';
 import MenuTop from './SubHeader/MenuTop';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [show,isShow]=useState(false);
@@ -26,9 +27,9 @@ const Header = () => {
                 </div>
                 <div className="menu">
                     <ul>
-                        <li><BiMessageDetail /></li>
-                        <li><BsFillBagHeartFill /></li>
-                        <li><AiOutlineShoppingCart /></li>
+                        <li><Link to="/chat"><BiMessageDetail /></Link></li>
+                        <li><Link to=""><BsFillBagHeartFill /></Link></li>
+                        <li><Link to="/order"><AiOutlineShoppingCart /></Link></li>
                         <li onClick={toggleShow}><img src="https://placehold.co/400" alt="" /></li>
                         {show&&<MenuTop/>}
                     </ul>
