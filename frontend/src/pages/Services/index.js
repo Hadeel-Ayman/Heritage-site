@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ServiceComponent from './serviceComponent'
 import { Localhost } from '../../config/api'
 import './style.scss'
+import Category from './categoryname'
 
 
 const Service = () => {
@@ -18,23 +19,26 @@ const Service = () => {
     }, [])
 
     return (
-        <div className='grid'>
-            {
-                data.map((item, index) => {
-                    return (
-                        <div key={index} >
-                            <ServiceComponent
-                                src={item.img}
-                                img={item.avatar}
-                                name={item.name}
-                                desc={item.description}
-                                price={item.price}
-                            />
-                        </div>
-                    )
-                })
-            }
-        </div>
+        <>
+            <Category />
+            <div className='grid'>
+                {
+                    data.map((item, index) => {
+                        return (
+                            <div key={index} >
+                                <ServiceComponent
+                                    src={item.img}
+                                    img={item.avatar}
+                                    name={item.name}
+                                    desc={item.description}
+                                    price={item.price}
+                                />
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        </>
     )
 }
 
