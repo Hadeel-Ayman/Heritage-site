@@ -1,5 +1,6 @@
 const express = require('express');
 const { postService, getService, getServiceById, patchService, deleteService } = require('../controllers/serviceContoller');
+const auth = require('../middleware/auth');
 const serviceRouter = express.Router();
 
 serviceRouter.post('/service', postService)

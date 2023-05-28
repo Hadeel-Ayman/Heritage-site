@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ServiceComponent from './serviceComponent'
+import Category from './categoryname'
 import { Localhost } from '../../config/api'
 import './style.scss'
-import Category from './categoryname'
 
 
 const Service = () => {
@@ -11,7 +11,7 @@ const Service = () => {
     const fetchData = () => {
         fetch(`${Localhost}/service`)
             .then((res) => (res.json()))
-            .then((data) => setData(data))
+            .then((datafetch) => setData(datafetch))
     }
 
     useEffect(() => {
@@ -25,8 +25,9 @@ const Service = () => {
                 {
                     data.map((item, index) => {
                         return (
-                            <div key={index} >
+                            <div key={index}>
                                 <ServiceComponent
+                                    to={`/service/${item._id}`}
                                     src={item.img}
                                     img={item.avatar}
                                     name={item.name}
