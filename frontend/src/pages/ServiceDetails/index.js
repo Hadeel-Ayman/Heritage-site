@@ -21,7 +21,7 @@ const ServiceDetailsPage = () => {
             name: 'John Doe',
             rating: 4.8,
             reviews: 156,
-            location: 'United States',
+            location: 'United States'
         },
     };
 
