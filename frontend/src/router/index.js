@@ -21,7 +21,7 @@ const Router = () => {
             <Route path="/detailes" element={<ServiceDetailsPage />} />
             <Route path="*" element={<h1>page not found</h1>} />
         </Routes>
-    );
-};
+    )
+}
 
 export default Router;
