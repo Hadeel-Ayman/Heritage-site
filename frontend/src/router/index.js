@@ -4,7 +4,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 // pages
-import { Chat, Login, Profile, Register, SellerProfile,Order } from "../pages";
+import { Chat, Login, Profile, Register, SellerProfile, Order,ServiceDetailsPage } from "../pages";
 import Service from "../pages/Services";
 import Home from "../pages/Home";
 
@@ -18,9 +18,11 @@ const Router = () => {
             <Route path="/sellerProfile" element={<SellerProfile />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/order" element={<Order />} />
-            <Route path="/service" element={<Service/>}/>
+            <Route path="/service" element={<Service />} />
+            <Route path="/detailes" element={<ServiceDetailsPage />} />
+            <Route path="*" element={<h1>page not found</h1>} />
         </Routes>
-    );
-};
+    )
+}
 
 export default Router;

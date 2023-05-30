@@ -32,8 +32,14 @@ app.use(ServiceRouter)
 const conversationRouter = require('../routes/conversationRoutes')
 app.use(conversationRouter)
 
-const gigRouter = require('../routes/gigRoutes')
-app.use(gigRouter)
+//detailes
+const detailesRouter = require('../routes/DetailesRoutes')
+app.use(detailesRouter)
+
+//review
+const reviewRouter = require('../routes/reviewRoutes')
+app.use(reviewRouter)
+
 
 const messageRouter = require('../routes/messageRoutes')
 app.use(messageRouter)
@@ -41,8 +47,6 @@ app.use(messageRouter)
 const orderRouter = require('../routes/orderRoutes')
 app.use(orderRouter)
 
-const reviewRouter = require('../routes/reviewRoutes')
-app.use(reviewRouter)
 
 
 

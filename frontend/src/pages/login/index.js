@@ -12,7 +12,7 @@ import { initalstate, reducer } from "../../reducer/loginReducer";
 import Title from "../../component/Title";
 import Button from "../../component/Button";
 import OR from "../../component/OR";
-import Input from "../../component/Input";
+import Input from "../../component/input";
 import Not from "../../component/not a member";
 
 const Login = () => {
