@@ -4,9 +4,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 // pages
-import { Chat, Login, Profile, Register, SellerProfile, Order } from "../pages";
+import { Chat, Login, Profile, Register, SellerProfile, Order,ServiceDetailsPage } from "../pages";
 import Service from "../pages/Services";
-import ServiceDetailsPage from "../pages/ServiceDetails";
 
 const Router = () => {
     return (
