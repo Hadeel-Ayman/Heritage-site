@@ -8,6 +8,7 @@ import { Chat, Login, Profile, Register, SellerProfile, Order,ServiceDetailsPage
 import Service from "../pages/Services";
 import Home from "../pages/Home";
 import Filter from "../pages/Filter";
+import NotFound from "../pages/NotFoundPage";
 
 const Router = () => {
     return (
@@ -22,7 +23,7 @@ const Router = () => {
             <Route path="/service" element={<Service />} />
             <Route path="/detailes" element={<ServiceDetailsPage />} />
             <Route path="/filter" element={<Filter />} />
-            <Route path="*" element={<h1>page not found</h1>} />
+            <Route path="*" element={<NotFound/>} />
         </Routes>
     )
 }
