@@ -166,7 +166,6 @@
           svg {
             width: 20px;
             cursor: pointer;
-
           }
           .card-fav {
             display: flex;
@@ -182,19 +181,19 @@
         }
       }
     }
-  .rating{
-    width: 100%;
-    border-bottom: 1px solid #acadb0;
-    padding: 10px 0 40px 0;
-    .heading {
+    .rating {
+      width: 100%;
+      border-bottom: 1px solid #acadb0;
+      padding: 10px 0 40px 0;
+      .heading {
         font-size: 25px;
         margin-right: 25px;
       }
-      
+
       .fa {
         font-size: 25px;
       }
-      
+
       /* Three column layout */
       .side {
         float: left;
@@ -203,27 +202,27 @@
         padding: 0;
         border-radius: 0 10px 10px 0;
       }
-      
+
       .middle {
-        margin-top:10px;
+        margin-top: 10px;
         float: left;
         width: 70%;
       }
-      hr{
+      hr {
         margin: 20px 0;
       }
       /* Place text to the right */
       .right {
         text-align: right;
       }
-      
+
       /* Clear floats after the columns */
       .row:after {
         content: "";
         display: table;
         clear: both;
       }
-      
+
       /* The bar container */
       .bar-container {
         width: 100%;
@@ -231,51 +230,77 @@
         text-align: center;
         color: white;
       }
-      
+
       /* Individual bars */
-      .bar-5 {width: 60%; height: 18px; background-color: #ff9800;border-radius: 10px;}
-      .bar-4 {width: 30%; height: 18px; background-color: #ff9800;border-radius: 10px;}
-      .bar-3 {width: 10%; height: 18px; background-color: #ff9800;border-radius: 10px;}
-      .bar-2 {width: 4%; height: 18px; background-color: #ff9800;border-radius: 10px;}
-      .bar-1 {width: 15%; height: 18px; background-color: #ff9800;border-radius: 10px;}
-      
+      .bar-5 {
+        width: 60%;
+        height: 18px;
+        background-color: #ff9800;
+        border-radius: 10px;
+      }
+      .bar-4 {
+        width: 30%;
+        height: 18px;
+        background-color: #ff9800;
+        border-radius: 10px;
+      }
+      .bar-3 {
+        width: 10%;
+        height: 18px;
+        background-color: #ff9800;
+        border-radius: 10px;
+      }
+      .bar-2 {
+        width: 4%;
+        height: 18px;
+        background-color: #ff9800;
+        border-radius: 10px;
+      }
+      .bar-1 {
+        width: 15%;
+        height: 18px;
+        background-color: #ff9800;
+        border-radius: 10px;
+      }
+
       @media (max-width: 400px) {
-        .side, .middle {
+        .side,
+        .middle {
           width: 100%;
         }
         .right {
           display: none;
         }
       }
-  }
-}
-.feedback{
-    width: 100%;
-    .card{
-        border-bottom: 1px solid #acadb0;
-        padding: 10px 0;
-        .card-header{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            color: #62646a;
-            .avatar{
-                img{
-                    width: 50px;
-                    height:50px;
-                    border-radius: 50%;
-                    object-fit: cover;
-                }
-            }
-        }
-        .card-content{
-            padding-bottom: 40px;
-            line-height: 1.6;
-        }
-        &:last-child{
-            border: none;
-        }
     }
-}
+  }
+  .feedback {
+    width: 100%;
+    .card {
+      border: none;
+      padding: 10px 0;
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+        color: #62646a;
+        .avatar {
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+      }
+      .card-content {
+        padding-bottom: 40px;
+        line-height: 1.6;
+      }
+      &:last-child {
+        border: none;
+      }
+    }
+  }
 }

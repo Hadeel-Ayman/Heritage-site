@@ -1,5 +1,5 @@
 import React from 'react'
-import not from '../../assets/images/not.png'
+import not from '../../assets/images/not.gif'
 import './style.scss'
 
 const NotFound = () => {

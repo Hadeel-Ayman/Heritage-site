@@ -4,7 +4,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 // pages
-import { Chat, Login, Profile, Register, SellerProfile, Order,ServiceDetailsPage } from "../pages";
+import { Chat, Login, Profile, Register, SellerProfile, Order, ServiceDetailsPage } from "../pages";
 import Service from "../pages/Services";
 import Home from "../pages/Home";
 import Filter from "../pages/Filter";
@@ -13,7 +13,7 @@ import NotFound from "../pages/NotFoundPage";
 const Router = () => {
     return (
         <Routes>
-            <Route path="/" element={<Home/>} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
@@ -23,7 +23,7 @@ const Router = () => {
             <Route path="/service" element={<Service />} />
             <Route path="/detailes" element={<ServiceDetailsPage />} />
             <Route path="/filter" element={<Filter />} />
-            <Route path="*" element={<NotFound/>} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     )
 }
