@@ -15,7 +15,7 @@
         padding: 8px 30px;
         border-bottom: 2px solid #b8d0e7;
       }
-      &:focus{
+      &:focus {
         color: #000;
       }
     }
@@ -28,25 +28,25 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     border-radius: 4px;
     overflow: hidden;
-    left:20px;
+    left: 20px;
     top: 40px;
     z-index: 12;
     transition: 0.3s;
   }
-  .Jordan{
-    left:650px;
+  .Jordan {
+    left: 650px;
   }
-  .Soudia{
-    left:500px;
+  .Soudia {
+    left: 500px;
   }
-  .Packestan{
-    left:400px;
+  .Packestan {
+    left: 400px;
   }
-  .London{
-    left:250px;
+  .London {
+    left: 250px;
   }
-  .Egypt{
-    left:150px;
+  .Egypt {
+    left: 150px;
   }
   .user-profile a {
     font-size: 12px;
@@ -58,8 +58,8 @@
     display: flex;
     align-items: center;
     padding: 15px 20px;
-    &:hover{
-        background-color: #b8d0e7;
+    &:hover {
+      background-color: #b8d0e7;
     }
   }
   .setting-links .settings-icons {
@@ -74,8 +74,8 @@
     justify-content: space-between;
     text-decoration: none;
     color: #626262;
-    &:hover{
-        color: #fff;
+    &:hover {
+      color: #fff;
     }
   }
 }
