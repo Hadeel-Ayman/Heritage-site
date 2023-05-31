@@ -9,7 +9,7 @@ function App() {
       <EditProvider>
         <Header />
         <Router />
-        <Footer />
+        <Footer /> 
       </EditProvider>
     </div>
   );
