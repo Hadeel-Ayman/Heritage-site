@@ -1,19 +1,17 @@
 const mongoose = require('mongoose')
-// const bcryptjs = require('bcryptjs')
-const validator = require('validator')
 
 const MessageSchema = new mongoose.Schema({
-    ConversationId: {
-        type: String,
-        required: true
+    sender: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Auth'
     },
-    UserId: {
+    content: {
         type: String,
-        required: true,
+        trim: true
     },
-    desc: {
-        type: String,
-        required: true,
+    content: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Conversation'
     }
 },
     {
