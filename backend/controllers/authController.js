@@ -1,9 +1,9 @@
-const User = require("../models/userModel")
+const Auth = require("../models/authModel")
 
 // register
 const register = async (req, res) => {
     try {
-        const user = new User(req.body)
+        const user = new Auth(req.body)
         const token = await user.generateToken()
         await user.save()
         res.status(200).send({ user, token })
@@ -16,7 +16,7 @@ const register = async (req, res) => {
 // login
 const login = async (req, res) => {
     try {
-        const user = await User.findByCredentials(req.body.email, req.body.password)
+        const user = await Auth.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateToken()
         res.cookie('accessToken', token, {
             httpOnly: true
@@ -32,7 +32,7 @@ const logout = async (req, res) => {
     try {
         console.log(req.user)
         req.user.tokens = req.user.tokens.filter((el) => {
-           return el !== req.token
+            return el !== req.token
         })
 
         await req.user.save()

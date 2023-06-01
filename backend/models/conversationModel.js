@@ -1,32 +1,21 @@
 const mongoose = require('mongoose')
-// const bcryptjs = require('bcryptjs')
-const validator = require('validator')
 
 const ConversationSchema = new mongoose.Schema({
-    id: {
+    chatName: {
         type: String,
-        required: true,
-        unique: true
+        trim: true
     },
-    sellerId: {
-        type: String,
-        required: true,
-    },
-    buyerId: {
-        type: String,
-        required: true,
-    },
-    readBySeller: {
+    isGroupChat: {
         type: Boolean,
-        required: true,
+        default: false
     },
-    readByBuyer: {
-        type: Boolean,
-        required: true,
-    },
-    lastMessage: {
-        type: String,
-        required: false,
+    users: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Auth'
+    }],
+    latestMessage: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Message'
     },
 },
     {

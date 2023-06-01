@@ -1,21 +1,11 @@
 const express = require('express');
 const userRouter = express.Router();
-const User = require("../models/userModel")
-const jwt = require('jsonwebtoken')
+const { getUser, postUser, getSingleUser, patchUser, deleteUser } = require('../controllers/userController');
 
-
-
-// // delete
-
-userRouter.delete('/user/:id', async (req, res) => {
-    const token = req.cookies.accessToken
-    if (!token) {
-        return res.status(400).send('user not found')
-    }
-    jwt.verify(token, 'hadeel', (err, payload) => {
-        res.send(payload)
-    })
-})
-
+userRouter.get('/user', getUser)
+userRouter.post('/user', postUser)
+userRouter.get('/user/:id', getSingleUser)
+userRouter.patch('/user/:id', patchUser)
+userRouter.delete('/user/:id', deleteUser)
 
 module.exports = userRouter

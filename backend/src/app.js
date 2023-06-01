@@ -40,6 +40,15 @@ app.use(detailesRouter)
 const reviewRouter = require('../routes/reviewRoutes')
 app.use(reviewRouter)
 
+//profile
+const profileRouter = require('../routes/profileRoutes')
+app.use(profileRouter)
+
+//upload
+const uploadRouter = require('../routes/uploadRoutes')
+app.use(uploadRouter)
+
+
 
 const messageRouter = require('../routes/messageRoutes')
 app.use(messageRouter)
