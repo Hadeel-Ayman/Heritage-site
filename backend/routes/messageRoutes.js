@@ -1,8 +1,8 @@
-const express = require('express')
+const express = require('express');
+const { postMessage, getMessage } = require('../controllers/messageController');
 const messageRouter = express.Router();
 
-messageRouter.get('/message', (req, res) => {
-    res.send('hello messageRouter')
-})
+messageRouter.post('/message', postMessage)
+messageRouter.get('/message/:conversationId', getMessage)
 
 module.exports = messageRouter

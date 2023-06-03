@@ -1,17 +1,14 @@
 const mongoose = require('mongoose')
 
 const MessageSchema = new mongoose.Schema({
-    sender: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Auth'
-    },
-    content: {
+    conversationId: {
         type: String,
-        trim: true
     },
-    content: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Conversation'
+    senderId: {
+        type: String
+    },
+    messages: {
+        type: String
     }
 },
     {
