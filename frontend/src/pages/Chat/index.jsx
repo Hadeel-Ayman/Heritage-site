@@ -1,8 +1,8 @@
-import React from 'react'
-import './style.scss';
+import React from "react";
+import "./style.scss";
 
-import Conversation from './Conversation';
-import Messages from './Messages';
+import Conversation from "./Conversation";
+import Messages from "./Messages";
 
 const Chat = () => {
   return (
@@ -12,7 +12,7 @@ const Chat = () => {
         <Messages />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Chat
+export default Chat;

@@ -1,8 +1,9 @@
-const express = require('express')
+const express = require('express');
+const { postConversation, getSingleConversation, findChat } = require('../controllers/conversationController.js');
 const conversationRouter = express.Router();
 
-conversationRouter.get('/conversation', (req, res) => {
-    res.send('hello conversationRouter')
-})
+conversationRouter.post('/conversation', postConversation)
+conversationRouter.get('/conversation/:id', getSingleConversation)
+conversationRouter.get('/conversation/:firstId/:secondId', findChat)
 
 module.exports = conversationRouter

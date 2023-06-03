@@ -6,7 +6,7 @@ const register = async (req, res) => {
         const user = new Auth(req.body)
         const token = await user.generateToken()
         await user.save()
-        res.status(200).send({ user, token })
+        res.status(200).send([user, token])
     } catch (e) {
         res.status(400).send(e)
     }
@@ -18,9 +18,7 @@ const login = async (req, res) => {
     try {
         const user = await Auth.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateToken()
-        res.cookie('accessToken', token, {
-            httpOnly: true
-        }).status(200).send({ user, token })
+        res.status(200).send({ user, token })
     } catch (e) {
         res.status(400).send(e.message)
     }
