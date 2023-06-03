@@ -32,6 +32,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+    Address: {
+        type: String,
+        trim: true
+    },
     gender: {
         type: String,
         trim: true
