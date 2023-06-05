@@ -1,14 +1,14 @@
 const jwt = require('jsonwebtoken')
-const User = require('../models/userModel')
+const Auth = require('../models/authModel')
 
 const auth = async (req, res, next) => {
     try {
-        const token = req.header('Authorization'.replace('Bearer ', ''))
+        const token = req.header('Authorization').replace('Bearer ', '')
         console.log(token)
-        const decode = jwt.verify(token, 'user')
+        const decode = jwt.verify(token, 'SECRET_KEY')
         console.log(decode)
 
-        const user = await User.findOne({ _id: decode._id, tokens: token })
+        const user = await Auth.findOne({ _id: decode._id.toString(), tokens: token })
         console.log(user)
         if (!user) {
             throw new Error()
@@ -16,9 +16,8 @@ const auth = async (req, res, next) => {
         req.user = user
         req.token = token
         next()
-
     } catch (e) {
-        res.status(401).send({ error: 'please authentication' })
+        res.status(401).send({ error: 'authentication please' })
     }
 }
 

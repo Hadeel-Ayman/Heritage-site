@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const User = require('./userModel')
 
 const AuthSchema = new mongoose.Schema({
     username: {
@@ -36,7 +35,7 @@ const AuthSchema = new mongoose.Schema({
     tokens: [
         {
             type: String,
-            // required: true
+            required: true
         }
     ]
 },
@@ -58,11 +57,12 @@ AuthSchema.statics.findByCredentials = async (emaicl, pass) => {
     const user = await Auth.findOne({ email: emaicl })
 
     if (!user) {
-        throw new Error('Unable to login ccc')
+        throw Error('Unable to login ccc')
     }
 
     const PasswordMatch = await bcryptjs.compare(pass, user.password)
     if (!PasswordMatch) {
+        throw new Error('Unable to login bbb')
     }
     return user
 }
@@ -73,7 +73,7 @@ AuthSchema.methods.generateToken = async function () {
     const token = jwt.sign(
         {
             id: user._id.toString(),
-        }, 'SECRET KEY')
+        }, 'SECRET_KEY')
     user.tokens = user.tokens.concat(token)
     await user.save()
     return token
