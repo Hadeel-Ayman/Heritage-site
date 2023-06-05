@@ -13,14 +13,14 @@ const ServiceComponent = ({ to, src, img, name, desc, price }) => {
 
       <div className='flex'>
         <img src={img} alt='' className='avatar' />
-        <h4>{name}</h4>
+        <h6>{name}</h6>
       </div>
 
       <div className='content'>
         <p>{desc}</p>
         <h5>{price}</h5>
       </div>
-    </div >
+    </div>
   )
 }
 
