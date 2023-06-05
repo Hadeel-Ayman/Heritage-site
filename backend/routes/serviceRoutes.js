@@ -10,4 +10,12 @@ serviceRouter.patch('/service/:id', patchService)
 serviceRouter.delete('/service/:id', deleteService)
 serviceRouter.get('/profile', profile)
 
+// serviceRouter.post('/service', auth, postService)
+// serviceRouter.get('/service', auth, getService)
+// serviceRouter.get('/service/:id', auth, getServiceById)
+// serviceRouter.patch('/service/:id', auth, patchService)
+// serviceRouter.delete('/service/:id', auth, deleteService)
+// serviceRouter.get('/profile', auth, profile)
+
+
 module.exports = serviceRouter
