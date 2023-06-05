@@ -6,7 +6,7 @@ const register = async (req, res) => {
         const user = new Auth(req.body)
         const token = await user.generateToken()
         await user.save()
-        res.status(200).send([user, token])
+        res.status(200).send({ user, token })
     } catch (e) {
         res.status(400).send(e)
     }
