@@ -151,12 +151,14 @@
       border-bottom: 1px solid #acadb0;
       .portoflio-content {
         display: flex;
-        gap: 20px;
-        justify-content: space-between;
+        gap: 10px;
+        justify-content: space-around;
+        flex-wrap: wrap;
         .card {
           border: 1px solid #acadb0;
           padding: 10px;
           border-radius: 10px;
+          width: 30%;
           .card-img {
             img {
               width: 100%;
