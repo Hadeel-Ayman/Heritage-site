@@ -11,6 +11,9 @@ const MenuTop = () => {
         <Link to="/">Home</Link>
       </div>
       <div className="setting-links">
+        <Link to="/seller">Become a seller </Link>
+      </div>
+      <div className="setting-links">
         <Link to="/">Logout</Link>
       </div>
     </div>
