@@ -11,6 +11,7 @@ import Filter from "../pages/Filter";
 import NotFound from "../pages/NotFoundPage";
 import FavoritePage from "../pages/Favorite";
 
+
 const Router = () => {
     return (
         <Routes>

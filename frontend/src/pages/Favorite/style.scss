@@ -1,25 +1,12 @@
-.favorite-page {
-  .favorite-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-
-    p {
-      margin-right: 10px;
-    }
-
-    button {
-      background-color: #e74c3c;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #c0392b;
-      }
-    }
+.FavoritePage {
+  h3 {
+    text-align: center;
+    margin-top: 30px;
+    color: #11a0b9;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
   }
 }
