@@ -49,7 +49,9 @@ const AuthSchema = new mongoose.Schema({
 
 AuthSchema.pre('save', async function () {
     const user = this
-    user.password = await bcryptjs.hash(user.password, 8)
+    if (user.isModified('password')) {
+        user.password = await bcryptjs.hash(user.password, 10)
+    }
 })
 
 //login
@@ -72,7 +74,7 @@ AuthSchema.methods.generateToken = async function () {
     const user = this
     const token = jwt.sign(
         {
-            id: user._id.toString(),
+            _id: user._id.toString()
         }, 'SECRET_KEY')
     user.tokens = user.tokens.concat(token)
     await user.save()
@@ -84,7 +86,7 @@ AuthSchema.methods.toJSON = function () {
     const user = this
     const userOfObject = user.toObject()
 
-    delete userOfObject.password
+    // delete userOfObject.password
     delete userOfObject.tokens
     return userOfObject
 }
