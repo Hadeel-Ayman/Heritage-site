@@ -11,7 +11,7 @@ const Service = () => {
 
     const fetchData = () => {
         axios
-            .get(`${Localhost}/service`)
+            .get(`${Localhost}/getService`)
             .then(data => setData(data.data))
             .catch(error => console.log(error));
     };
