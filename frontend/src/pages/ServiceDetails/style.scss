@@ -1,70 +1,41 @@
 .service-details-page {
   padding: 20px;
-  margin-top: 20px;
+  margin-top: 50px;
+  display: flex;
+  width: 95%;
+  gap: 20px;
+  margin: 50px auto;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-  .service-details {
-    margin-bottom: 20px;
+  .serviceImg {
+    width: 300px;
+    height: 400px;
+  }
+  .content {
     .sellers {
       display: flex;
-      align-items: center;
-      margin-top: 15px;
+      gap: 7px;
+    }
+    .openModal {
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .btnModal {
+      outline: none;
+      border: 1px solid #b7b7fd;
+      border-radius: 20px;
+      padding: 10px;
+      color: #fff;
+      background-color: #b7b7fd;
+    }
+    .flex {
+      display: flex;
       gap: 10px;
-      img {
-        border-radius: 50%;
-      }
-    }
-    hr {
-      margin: 20px 0;
-    }
-    .serviceImg {
-      width: 600px;
-      height: 400px;
-    }
-    .service-title {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .service-description {
-      margin-bottom: 10px;
-    }
-
-    .service-info {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-
-      .service-price {
-        font-weight: bold;
-      }
-    }
-  }
-
-  .seller-details {
-    h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    .seller-info {
-      display: flex;
-      align-items: center;
-
-      .seller-name {
-        margin-right: 10px;
-        font-weight: bold;
-      }
-
-      .seller-rating {
-        margin-right: 10px;
-      }
-
-      .seller-reviews {
-        margin-right: 10px;
-      }
-
-      .seller-location {
-        font-style: italic;
-      }
     }
   }
 }
