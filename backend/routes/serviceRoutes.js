@@ -5,9 +5,11 @@ const serviceRouter = express.Router();
 
 serviceRouter.post('/service', auth, postService)
 serviceRouter.get('/service', auth, getService)
+serviceRouter.get('/getService', getService)
 serviceRouter.get('/service/:id', auth, getServiceById)
 serviceRouter.patch('/service/:id', auth, patchService)
 serviceRouter.delete('/service/:id', auth, deleteService)
-serviceRouter.get('/profile', auth, profile)
+serviceRouter.get('/profilee', auth, profile)
+
 
 module.exports = serviceRouter

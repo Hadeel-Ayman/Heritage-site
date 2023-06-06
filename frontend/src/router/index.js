@@ -9,7 +9,9 @@ import Service from "../pages/Services";
 import Home from "../pages/Home";
 import Filter from "../pages/Filter";
 import NotFound from "../pages/NotFoundPage";
+
 import SellerSection from "../pages/SellerSection";
+import FavoritePage from "../pages/Favorite";
 
 const Router = () => {
     return (
@@ -25,6 +27,7 @@ const Router = () => {
             <Route path="/details" element={<ServiceDetailsPage />} />
             <Route path="/filter" element={<Filter />} />
             <Route path="/seller" element={<SellerSection />} />
+            <Route path="/favorite" element={<FavoritePage />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     )

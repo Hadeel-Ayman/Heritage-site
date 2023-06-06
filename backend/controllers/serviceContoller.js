@@ -16,6 +16,7 @@ const getService = async (req, res) => {
         .catch((e) => res.status(400).send(e.message))
 }
 
+
 const profile = async (req, res) => {
     res.status(200).send(req.user)
 }
