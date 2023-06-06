@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import man from '../../../assets/images/man.jpg'
 import './style.scss';
+import close from '../../../assets/images/cancel.png'
+// import close from '../../../assets/images/close.png'
 
-const AboutSellerPage = () => {
+const AboutSellerPage = ({ onClick }) => {
     // Dummy data for seller
     const seller = {
         name: 'John Doe',
@@ -16,6 +18,8 @@ const AboutSellerPage = () => {
     return (
         <div className="about-seller-page">
             <h2>About the seller</h2>
+            <img src={close} alt='' className='close' onClick={onClick} />
+
             <div className="seller-info">
                 <img src={seller.img} alt='' />
                 <h1 className="seller-name">{seller.name}</h1>
