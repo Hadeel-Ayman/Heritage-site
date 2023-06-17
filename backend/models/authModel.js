@@ -44,7 +44,6 @@ const AuthSchema = new mongoose.Schema({
     })
 
 
-
 // bcryptjs password for regestier
 
 AuthSchema.pre('save', async function () {

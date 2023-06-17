@@ -11,10 +11,10 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 
 app.use(express.json())
+app.use(cors())
 app.use(cookieParser())
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
-app.use(cors())
 require('../db/mongoose')
 
 
@@ -23,8 +23,8 @@ const authRouter = require('../routes/authRoutes')
 app.use(authRouter)
 
 //User
-const UserRouter = require('../routes/userRoutes')
-app.use(UserRouter)
+// const UserRouter = require('../routes/userRoutes')
+// app.use(UserRouter)
 
 // service
 const ServiceRouter = require('../routes/serviceRoutes')
@@ -35,32 +35,28 @@ const conversationRouter = require('../routes/conversationRoutes')
 app.use(conversationRouter)
 
 //detailes
-const detailesRouter = require('../routes/DetailesRoutes')
-app.use(detailesRouter)
+const CategoryRouter = require('../routes/CategoryRoutes')
+app.use(CategoryRouter)
 
 //review
-const reviewRouter = require('../routes/reviewRoutes')
-app.use(reviewRouter)
+const ProductRouter = require('../routes/ProductRoutes')
+app.use(ProductRouter)
 
 //profile
 const profileRouter = require('../routes/profileRoutes')
 app.use(profileRouter)
 
-//upload
-const uploadRouter = require('../routes/uploadRoutes')
-app.use(uploadRouter)
+// //upload
+// const uploadRouter = require('../routes/uploadRoutes')
+// app.use(uploadRouter)
 
 
 //messageRouter
 const messageRouter = require('../routes/messageRoutes')
 app.use(messageRouter)
 
-const orderRouter = require('../routes/orderRoutes')
-app.use(orderRouter)
-
-
-
-
+const subCategory = require('../routes/SubcategoryRoutes')
+app.use(subCategory)
 
 
 app.listen(port, () => console.log(`Localhost is ${port}`))
