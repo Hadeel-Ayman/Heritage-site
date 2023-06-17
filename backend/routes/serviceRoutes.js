@@ -9,7 +9,7 @@ serviceRouter.get('/getService', getService)
 serviceRouter.get('/service/:id', auth, getServiceById)
 serviceRouter.patch('/service/:id', auth, patchService)
 serviceRouter.delete('/service/:id', auth, deleteService)
-serviceRouter.get('/profilee', auth, profile)
 
 
 module.exports = serviceRouter
+

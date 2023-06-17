@@ -1,3 +1,4 @@
+
 const Auth = require("../models/authModel")
 
 // register

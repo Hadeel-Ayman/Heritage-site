@@ -37,7 +37,7 @@ const ProfileSchema = new mongoose.Schema({
         trim: true
     },
     avatar: {
-
+        type: String
     }
 },
     {

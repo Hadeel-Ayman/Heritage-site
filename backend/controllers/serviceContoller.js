@@ -42,7 +42,7 @@ const patchService = async (req, res) => {
     try {
 
         const id = req.params.id
-        const service = await Service.findOneAndUpdate({ id, owner: req.user._id }, req.params, {
+        const service = await Service.findOneAndUpdate({ id, owner: req.user._id }, req.body, {
             runValidators: true,
             new: true
         })
