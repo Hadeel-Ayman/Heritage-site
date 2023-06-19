@@ -2,10 +2,6 @@ const mongoose = require('mongoose')
 
 
 const ProductSchema = new mongoose.Schema({
-    vendor_id: {
-        type: String,
-        required: true
-    },
     name: {
         type: String,
         required: true
@@ -18,12 +14,9 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    category_id: {
-        type: String,
-        required: true
-    },
-    sub_cat_id: {
-        type: String,
+    subcategory: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Subcategory',
         required: true
     },
     images: {

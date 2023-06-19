@@ -1,20 +1,7 @@
 const mongoose = require('mongoose')
 
 const ServiceSchema = new mongoose.Schema({
-    img: {
-        type: String,
-        required: true
-    },
-    avatar: {
-        type: String,
-        required: true
-    },
     name: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    description: {
         type: String,
         required: true,
         trim: true
@@ -23,6 +10,23 @@ const ServiceSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
+    },
+    imgCover: {
+        type: String,
+        required: true
+    },
+    avatar: {
+        type: String
+    },
+    description: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    subcategory: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Subcategory',
+        required: true
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
