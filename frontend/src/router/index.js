@@ -4,14 +4,13 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 // pages
-import { Chat, Login, Profile, Register, SellerProfile, Order, ServiceDetailsPage } from "../pages";
-import Service from "../pages/Services";
-import Home from "../pages/Home";
-import Filter from "../pages/Filter";
-import NotFound from "../pages/NotFoundPage";
+import {
+    Chat, Login, Profile, Register,
+    SellerProfile, Order, ServiceDetailsPage,
+    Categories, Home, Service, Filter, SellerSection, FavoritePage, NotFound, Subcategory
+} from "../pages";
 
-import SellerSection from "../pages/SellerSection";
-import FavoritePage from "../pages/Favorite";
+
 
 const Router = () => {
     return (
@@ -23,11 +22,13 @@ const Router = () => {
             <Route path="/sellerProfile" element={<SellerProfile />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/order" element={<Order />} />
-            <Route path="/service" element={<Service />} />
+            <Route path="/subCategory/:subCatId/service" element={<Service />} />
             <Route path="/details" element={<ServiceDetailsPage />} />
             <Route path="/filter" element={<Filter />} />
             <Route path="/seller" element={<SellerSection />} />
             <Route path="/favorite" element={<FavoritePage />} />
+            <Route path="/category" element={<Categories />} />
+            <Route path="/category/:CatId/subCategory" element={<Subcategory />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     )

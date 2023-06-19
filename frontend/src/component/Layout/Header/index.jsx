@@ -51,7 +51,7 @@ const Header = () => {
           </ul>
         </div>
       </div>
-      <SubHeader />
+      {/* <SubHeader /> */}
     </div>
   );
 };

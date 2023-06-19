@@ -4,31 +4,24 @@ import Category from './categoryname'
 import axios from 'axios'
 import { Localhost } from '../../config/api'
 import './style.scss'
-
+import { useParams } from 'react-router-dom'
 
 const Service = () => {
+    const params = useParams();
+    const subCatId = params.subCatId;
     const [data, setData] = useState([])
 
     const fetchData = () => {
         axios
-            .get(`${Localhost}/getService`)
+            .get(`${Localhost}/subCategory/${subCatId}/service`)
             .then(data => setData(data.data))
             .catch(error => console.log(error));
     };
-
-
-    //       localStorage.setItem("user", JSON.stringify(res));
-    //       navigate("/");
-    //       console.log(res);
-    //     } 
-    //   };
-
     useEffect(() => {
         fetchData()
     }, [])
 
     return (
-
         <>
             <Category />
             <div className='grid'>
