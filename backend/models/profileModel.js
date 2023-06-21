@@ -32,6 +32,11 @@ const ProfileSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+    email: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Auth'
+    },
     gender: {
         type: String,
         trim: true

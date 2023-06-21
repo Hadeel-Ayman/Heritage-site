@@ -3,7 +3,7 @@ export const initalstate2 = {
     lastname: '',
     email: '',
     Gender: '',
-    Phone: '',
+    phone: '',
     address: '',
     country: '',
 
@@ -19,8 +19,8 @@ export const reducer2 = (state, action) => {
             return { ...state, email: action.value }
         case 'Gender':
             return { ...state, Gender: action.value }
-        case 'Phone':
-            return { ...state, Phone: action.value }
+        case 'phone':
+            return { ...state, phone: action.value }
         case 'address':
             return { ...state, address: action.value }
         case 'country':

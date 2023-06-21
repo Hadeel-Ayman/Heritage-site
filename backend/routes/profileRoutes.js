@@ -17,11 +17,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }).single('avatar');
 
 
-profileRoute.get('/getProfile', getProfile)
-profileRoute.post('/addprofile', upload, addProfile)
-profileRoute.patch('/editprofile/:id', upload, editProfile)
-profileRoute.get('/getprofileById/:id', getProfileById)
-profileRoute.delete('/deleteprofile/:id', deleteProfile)
+profileRoute.get('/Profile', getProfile)
+profileRoute.post('/Profile', upload, addProfile)
+profileRoute.patch('/Profile/:id', upload, editProfile)
+profileRoute.get('/Profile/:id', getProfileById)
+profileRoute.delete('/Profile/:id', deleteProfile)
 
 
 module.exports = profileRoute
