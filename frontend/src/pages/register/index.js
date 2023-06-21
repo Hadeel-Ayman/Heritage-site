@@ -1,60 +1,73 @@
 import React, { useReducer, useEffect } from "react";
-import { useNavigate } from 'react-router-dom'
+import { useAuthContext } from "../../context/authContext";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
+import Error from "../../component/Error";
+
 import "./style.scss";
 
 // config
 import { Localhost } from "../../config/api";
 
-// reducer
-import { initalstate1, reducer1 } from "../../reducer/registerReducer";
-
 // component
 import Title from "../../component/Title";
 import Button from "../../component/Button";
-import Input from "../../component/input";
+import Input from "../../component/Input";
 import OR from "../../component/OR";
 import Not from "../../component/not a member";
 
 const Register = () => {
-  const navigate = useNavigate();
+  const { loading, setLoading, setToken, login } = useAuthContext();
+  //   const [errors, setError] = useState();
 
-  const [state, dispatch] = useReducer(reducer1, initalstate1);
+  const validationSchema = Yup.object({
+    username: Yup.string().required("Please Enter your username"),
 
-  const data = {
-    username: state.username,
-    password: state.password,
-    email: state.email,
+    email: Yup.string()
+      .email("Invalid email")
+      .required("Please Enter your email"),
+
+    password: Yup.string()
+      .min(8, "password must be more than 8")
+      .matches(/[a-z]/g, "password must contain at least one character ")
+      .matches(/\d/g, "password must contain at least one digits")
+      .matches(
+        /[!@#$%^&*)(+=._-]/g,
+        "password must contain at least one special character"
+      )
+      .required("Please enter your password"),
+  });
+
+  const onSubmit = async ({ email, password, username }) => {
+    setLoading(true);
+    const res = await axios
+      .post(`${Localhost}/register`, { email, password, username })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => setLoading(false));
+
+    if (res) {
+      setToken(res.data.token);
+      localStorage.setItem("token", res.data.token);
+      login();
+    }
   };
 
-  useEffect(() => {
-    const getData = localStorage.getItem('user')
-    if (getData) {
-      navigate('/')
-    }
-  })
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      let fetchData = await fetch(`${Localhost}/register`, {
-        method: "post",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      let res = await fetchData.json();
-      localStorage.setItem("user", JSON.stringify(res));
-      navigate("/");
-      console.log(res);
-    } catch (e) {
-      dispatch({ type: "error", value: e });
-    }
-  };
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      email: "",
+      password: "",
+    },
+    validationSchema,
+    onSubmit,
+  });
 
   return (
     <div className="register">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={formik.handleSubmit}>
         <Title title={"Sign Up to Heritage"} />
         <div>
           <Button
@@ -82,36 +95,51 @@ const Register = () => {
         <div className="allinput">
           <Input
             placeholder={"Enter your Username"}
-            name={"username"}
-            type={"text"}
-            onChange={(e) =>
-              dispatch({ type: "username", value: e.target.value })
+            name="username"
+            type="username"
+            onChange={formik.handleChange}
+            value={formik.values.username}
+            onBlur={formik.handleBlur}
+            className={
+              formik.touched.username && formik.errors.username && "error"
             }
-            value={state.username}
           />
+          {formik.touched.username && formik.errors.username && (
+            <Error msg={formik.errors.username} />
+          )}
 
           <Input
             placeholder={"Enter your Email"}
-            name={"email"}
-            type={"text"}
-            onChange={(e) => dispatch({ type: "email", value: e.target.value })}
-            value={state.email}
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            onBlur={formik.handleBlur}
+            className={formik.touched.email && formik.errors.email && "error"}
           />
+          {formik.touched.email && formik.errors.email && (
+            <Error msg={formik.errors.email} />
+          )}
 
           <Input
-            name={"password"}
-            value={state.password}
-            onChange={(e) =>
-              dispatch({ type: "password", value: e.target.value })
-            }
+            name="password"
+            type="password"
             placeholder={"Enter your password"}
-            type={"password"}
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            onBlur={formik.handleBlur}
+            className={
+              formik.touched.password && formik.errors.password && "error"
+            }
           />
+          {formik.touched.password && formik.errors.password && (
+            <Error msg={formik.errors.password} />
+          )}
         </div>
+
         <button type="submit" className="submit">
-          Register
+          {loading?"loading...":"Register"}
         </button>
-        {state.error && state.error}
         <hr />
         <Not title={"Already a member"} ques={"Sign In"} href={"/login"} />
       </form>
