@@ -20,7 +20,7 @@ const addProfile = async (req, res) => {
             ...req.body, avatar: req.file.fieldname
         })
         await userData.save()
-        res.status(200).send({ success: true, data: userData })
+        res.status(200).send(userData)
     } catch (e) {
         res.status(400).send({ msg: e.message })
     }
@@ -36,7 +36,7 @@ const editProfile = async (req, res) => {
         if (!userData) {
             return res.status(404).send('userData not found')
         }
-        res.status(200).send({ data: userData })
+        res.status(200).send(userData)
     } catch (e) {
         res.status(200).send(e.message)
     }

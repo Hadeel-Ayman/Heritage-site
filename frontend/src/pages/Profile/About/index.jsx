@@ -1,35 +1,53 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { useEditContext } from "./../../../context/editContext";
 import { initalstate2, reducer2 } from "../../../reducer/ProfileReduce";
 import { Localhost } from "../../../config/api";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const About = () => {
   const [state, dispatch] = useReducer(reducer2, initalstate2);
-
+  
   const data = {
     firstname: state.firstname,
     lastname: state.lastname,
     email: state.email,
     Gender: state.Gender,
-    Phone: state.Phone,
+    phone: state.phone,
     address: state.address,
     country: state.country,
   };
 
+  const params = useParams();
+  const id = params.id;
+  
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const response = await axios.get(`${Localhost}/Profile/${id}`);
+        const profile = response.data;
+
+        dispatch({ type: "firstname", value: profile.firstname });
+        dispatch({ type: "lastname", value: profile.lastname });
+        dispatch({ type: "email", value: profile.email });
+        dispatch({ type: "gender", value: profile.gender });
+        dispatch({ type: "phone", value: profile.phone });
+        dispatch({ type: "address", value: profile.address });
+        dispatch({ type: "country", value: profile.country });
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
+    };
+    fetch();
+  }, [id]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      let fetchData = await fetch(`${Localhost}/user`, {
-        method: "patch",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      let res = await fetchData.json();
-      console.log(res);
-    } catch (e) {
-      console.log(e);
+      await axios.patch(`${Localhost}/Profile/${id}`);
+    } catch (error) {
+      console.error("Error updating profile:", error);
     }
   };
 
@@ -49,7 +67,7 @@ const About = () => {
                 <span className="itemValue">
                   <input
                     type="text"
-                    value={state.firstname}
+                    value={data.firstname}
                     name="firstname"
                     onChange={(e) =>
                       dispatch({ type: "firstname", value: e.target.value })
@@ -63,7 +81,7 @@ const About = () => {
                   <input
                     type="text"
                     name="lastname"
-                    value={state.lastname}
+                    value={data.lastname}
                     onChange={(e) =>
                       dispatch({ type: "lastname", value: e.target.value })
                     }
@@ -76,7 +94,7 @@ const About = () => {
                   <input
                     type="text"
                     name="Gender"
-                    value={state.Gender}
+                    value={data.Gender}
                     onChange={(e) =>
                       dispatch({ type: "Gender", value: e.target.value })
                     }
@@ -84,14 +102,14 @@ const About = () => {
                 </span>
               </div>
               <div className="detailItem">
-                <span className="itemKey">Phone:</span>
+                <span className="itemKey">phone:</span>
                 <span className="itemValue">
                   <input
                     type="tel"
-                    name="Phone"
-                    value={state.Phone}
+                    name="phone"
+                    value={data.phone}
                     onChange={(e) =>
-                      dispatch({ type: "Phone", value: e.target.value })
+                      dispatch({ type: "phone", value: e.target.value })
                     }
                   />
                 </span>
@@ -102,7 +120,7 @@ const About = () => {
                   <input
                     type="email"
                     name="email"
-                    value={state.email}
+                    value={data.email}
                     onChange={(e) =>
                       dispatch({ type: "email", value: e.target.value })
                     }
@@ -115,7 +133,7 @@ const About = () => {
                   <input
                     type="text"
                     name="address"
-                    value={state.address}
+                    value={data.address}
                     onChange={(e) =>
                       dispatch({ type: "address", value: e.target.value })
                     }
@@ -127,7 +145,7 @@ const About = () => {
                 <span className="itemValue">
                   <input
                     type="text"
-                    value={state.country}
+                    value={data.country}
                     name="country"
                     onChange={(e) =>
                       dispatch({ type: "country", value: e.target.value })
@@ -146,37 +164,31 @@ const About = () => {
           <div className="wrapper">
             <div className="detailItem">
               <span className="itemKey">First Name:</span>
-              <span className="itemValue">John</span>
+              <span className="itemValue">{data.firstname}</span>
             </div>
             <div className="detailItem">
               <span className="itemKey">Last Name:</span>
-              <span className="itemValue">Joe</span>
+              <span className="itemValue">{data.lastname}</span>
             </div>
             <div className="detailItem">
               <span className="itemKey">Gender:</span>
-              <span className="itemValue">male</span>
+              <span className="itemValue">{data.Gender}</span>
             </div>
             <div className="detailItem">
-              <span className="itemKey">Phone:</span>
-              <span className="itemValue">+1 2345 67 89</span>
+              <span className="itemKey">phone:</span>
+              <span className="itemValue">{data.phone}</span>
             </div>
             <div className="detailItem">
               <span className="itemKey">Email:</span>
-              <span className="itemValue">janedoe@gmail.com</span>
+              <span className="itemValue">{data.email}</span>
             </div>
             <div className="detailItem">
               <span className="itemKey">Address:</span>
-              <span className="itemValue">
-                Elton St. 234 Garden Yd. NewYork
-              </span>
+              <span className="itemValue">{data.address}</span>
             </div>
             <div className="detailItem">
               <span className="itemKey">Country:</span>
-              <span className="itemValue">USA</span>
-            </div>
-            <div className="detailItem">
-              <span className="itemKey">Birthday:</span>
-              <span className="itemValue">May 03,2000</span>
+              <span className="itemValue">{data.country}</span>
             </div>
           </div>
         </>

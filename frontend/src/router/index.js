@@ -9,8 +9,7 @@ import {
     SellerProfile, Order, ServiceDetailsPage,
     Categories, Home, Service, Filter, SellerSection, FavoritePage, NotFound, Subcategory
 } from "../pages";
-
-
+import About from "../pages/Profile/About";
 
 const Router = () => {
     return (
@@ -18,7 +17,9 @@ const Router = () => {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<Profile />} >
+                <Route path="about/:id" element={<About />} />
+            </Route>
             <Route path="/sellerProfile" element={<SellerProfile />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/order" element={<Order />} />
