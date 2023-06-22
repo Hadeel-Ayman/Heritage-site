@@ -13,12 +13,14 @@ import { Localhost } from "../../config/api";
 // component
 import Title from "../../component/Title";
 import Button from "../../component/Button";
-import Input from "../../component/Input";
+import Input from "../../component/input";
 import OR from "../../component/OR";
 import Not from "../../component/not a member";
+import { useNavigate } from "react-router";
 
 const Register = () => {
   const { loading, setLoading, setToken, login } = useAuthContext();
+  const navigate = useNavigate();
   //   const [errors, setError] = useState();
 
   const validationSchema = Yup.object({
@@ -52,6 +54,7 @@ const Register = () => {
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
       login();
+      navigate('/')
     }
   };
 
@@ -138,7 +141,7 @@ const Register = () => {
         </div>
 
         <button type="submit" className="submit">
-          {loading?"loading...":"Register"}
+          {loading ? "loading..." : "Register"}
         </button>
         <hr />
         <Not title={"Already a member"} ques={"Sign In"} href={"/login"} />

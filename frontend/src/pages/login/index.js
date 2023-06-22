@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useAuthContext } from "../../context/authContext";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -13,12 +13,15 @@ import { Localhost } from "../../config/api";
 import Title from "../../component/Title";
 import Button from "../../component/Button";
 import OR from "../../component/OR";
-import Input from "../../component/Input";
+import Input from "../../component/input";
 import Not from "../../component/not a member";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const { loading, setLoading, setToken, login } = useAuthContext();
-//   const [errors, setError] = useState();
+  const navigate = useNavigate();
+
+  //   const [errors, setError] = useState();
 
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -42,6 +45,7 @@ const Login = () => {
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
       login();
+      navigate('/chat')
     }
   };
 

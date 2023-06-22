@@ -1,7 +1,8 @@
 const express = require('express');
 const { getProfile, editProfile, deleteProfile, addProfile, getProfileById } = require('../controllers/editProfileController');
 const profileRoute = express.Router();
-const multer = require('multer')
+const multer = require('multer');
+const auth = require('../middleware/auth');
 
 
 const storage = multer.diskStorage({
@@ -17,11 +18,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }).single('avatar');
 
 
-profileRoute.get('/Profile', getProfile)
-profileRoute.post('/Profile', upload, addProfile)
-profileRoute.patch('/Profile/:id', upload, editProfile)
-profileRoute.get('/Profile/:id', getProfileById)
-profileRoute.delete('/Profile/:id', deleteProfile)
+profileRoute.get('/Profile', auth, getProfile)
+profileRoute.post('/Profile', auth, upload, addProfile)
+profileRoute.patch('/Profile/:id', auth, upload, editProfile)
+profileRoute.get('/Profile/:id', auth, getProfileById)
+profileRoute.delete('/Profile/:id', auth, deleteProfile)
 
 
 module.exports = profileRoute

@@ -6,8 +6,6 @@ const useAuth = (url) => {
     const [token, setToken] = useState("");
     const [name, setUserName] = useState("");
 
-
-
     const logout = () => {
         localStorage.clear();
         setAuthorized(false);
