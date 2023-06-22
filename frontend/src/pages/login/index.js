@@ -45,7 +45,7 @@ const Login = () => {
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
       login();
-      navigate('/')
+      navigate('/chat')
     }
   };
 

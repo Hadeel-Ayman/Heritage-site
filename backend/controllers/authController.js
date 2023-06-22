@@ -25,11 +25,40 @@ const login = async (req, res) => {
     }
 }
 
+// getUserById
+const getUserById = async (req, res) => {
+    try {
+        const id = req.params.id
+        const user = await Auth.findById(id);
+        if (!user) {
+            return res.status(404).send({ error: 'user not found' });
+        } else {
+            return res.status(200).send(user);
+        }
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+}
+
+
+const getUser = async (req, res) => {
+    try {
+        const user = await Auth.find()
+        if (!user) {
+            res.status(404).send('user not found')
+        } else {
+            res.status(200).send(user)
+        }
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
+
+
 
 // logout
 const logout = async (req, res) => {
     try {
-        console.log(req.user)
         req.user.tokens = req.user.tokens.filter((el) => {
             return el !== req.token
         })
@@ -46,5 +75,7 @@ const logout = async (req, res) => {
 module.exports = {
     register,
     login,
-    logout
+    logout,
+    getUserById,
+    getUser
 }
