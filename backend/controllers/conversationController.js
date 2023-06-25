@@ -5,8 +5,8 @@ const Conversation = require("../models/conversationModel")
 const postConversation = async (req, res) => {
     const { firstId, secondId } = req.body
     try {
-        const chat = await Conversation.findOne({ members: { $all: [firstId, secondId] } })
-        if (chat) res.status(200).json(chat)
+        // const chat = await Conversation.findOne({ members: { $all: [firstId, secondId] } })
+        // if (chat) res.status(200).json(chat)
 
         const newChat = new Conversation({
             members: [firstId, secondId]
