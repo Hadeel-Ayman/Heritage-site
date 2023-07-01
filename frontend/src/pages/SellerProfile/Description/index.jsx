@@ -19,8 +19,8 @@ const Description = () => {
             </div>
             <div className="title">Accounts</div>
             <div className="desc">
-                <div className='lang'><a href="#">Linked in </a></div>
-                <div className='lang'><a href="#">Google </a></div>
+                <div className='lang'><a>Linked in </a></div>
+                <div className='lang'><a>Google </a></div>
             </div>
             <div className="title">Skills</div>
             <div className="skills">
