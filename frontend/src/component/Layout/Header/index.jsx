@@ -4,7 +4,6 @@ import "./style.scss";
 import { BiMessageDetail } from "react-icons/bi";
 import { BsFillBagHeartFill } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import SubHeader from "./SubHeader";
 import MenuTop from "./SubHeader/MenuTop";
 import { Link } from "react-router-dom";
 
