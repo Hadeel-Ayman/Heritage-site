@@ -19,7 +19,7 @@ const Service = () => {
     };
     useEffect(() => {
         fetchData()
-    }, [])
+    })
 
     return (
         <>

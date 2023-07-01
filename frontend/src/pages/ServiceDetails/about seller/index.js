@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import man from '../../../assets/images/man.jpg'
 import './style.scss';
 import close from '../../../assets/images/cancel.png'
