@@ -16,7 +16,7 @@ const postService = async (req, res) => {
 const getService = async (req, res) => {
     try {
         const sevice = await Service.find({}).populate({ path: 'subcategory', select: 'sub_category -_id' })
-        res.status(400).send(sevice)
+        res.status(200).send(sevice)
     } catch (e) {
         res.status(400).send({ msg: e.message })
     }

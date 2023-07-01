@@ -1,5 +1,5 @@
 const express = require('express');
-const { postService, getService, getServiceById, patchService, deleteService, profile } = require('../controllers/serviceContoller');
+const { postService, getService, getServiceById, patchService, deleteService } = require('../controllers/serviceContoller');
 const auth = require('../middleware/auth');
 const multer = require('multer');
 const serviceRouter = express.Router();
