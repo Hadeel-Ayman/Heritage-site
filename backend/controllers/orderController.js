@@ -20,8 +20,8 @@ const PostProductCategory = async (req, res) => {
 }
 
 const PatchProductCategory = async (req, res) => {
-    const id = req.params.id
     try {
+        const id = req.params.id
         const product = await Product.findByIdAndUpdate(id, req.body, {
             runValidators: true,
             new: true
