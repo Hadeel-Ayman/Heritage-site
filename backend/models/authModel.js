@@ -85,7 +85,7 @@ AuthSchema.methods.toJSON = function () {
     const user = this
     const userOfObject = user.toObject()
 
-    // delete userOfObject.password
+    delete userOfObject.password
     delete userOfObject.tokens
     return userOfObject
 }
